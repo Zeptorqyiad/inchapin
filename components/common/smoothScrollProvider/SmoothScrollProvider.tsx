@@ -79,8 +79,8 @@ export const SmoothScrollProvider = ({ children }: SmoothScrollProps) => {
     }, [])
 
     return (
-        <div ref={scrollContainerRef} className={styles.scroll}>
-            {children}
+        <div ref={scrollContainerRef} className={styles.scroll} data-scrollbar>
+            <div className="scroll-content">{children}</div>
         </div>
     )
 }
