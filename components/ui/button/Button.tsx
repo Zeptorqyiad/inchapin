@@ -50,28 +50,28 @@ export const Button = ({
             {...props}
             disabled={isBtnDisabled}
         >
+            {variant === "burger" && (
+                <div className={styles["button__burger"]}>
+                    <div className={styles["button__burger_lines"]}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>{text}</p>
+                </div>
+            )}
+
             {loading ? (
                 <span className={styles["button__spinner"]}></span>
             ) : (
-                variant === "burger" && (
-                    <div className={styles["button__burger"]}>
-                        <div className={styles["button__burger_lines"]}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <p>{text}</p>
-                    </div>
-                )
+                variant === "outline" && text
             )}
-
-            {variant === 'outline' && text}
 
             {variant === "text" && (
                 <>
                     <p className={styles["text__full"]}>{text}</p>
 
-                    <PhoneIcon className={styles['text__mob']} />
+                    <PhoneIcon className={styles["text__mob"]} />
                 </>
             )}
         </button>
