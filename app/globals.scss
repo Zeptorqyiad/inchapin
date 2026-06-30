@@ -1,0 +1,24 @@
+@use "../style/reset";
+@use "../style/colors";
+@use "../style/mixins" as *;
+
+body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    font-family: "Proxima Nova", sans-serif;
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+main {
+    @include spacing("padding-top", 100, 130, 103, 123, 81);
+}
+
+.scrollbar-track {
+    z-index: 101 !important;
+}

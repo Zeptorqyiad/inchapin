@@ -1,0 +1,35 @@
+@use "@/style/mixins" as *;
+
+.phone_link {
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    height: fit-content;
+
+    &:hover {
+        .phone_wrapper {
+            transform: translateY(-150%);
+        }
+    }
+}
+
+.phone_wrapper {
+    display: inline-block;
+    position: relative;
+    line-height: 100%;
+    @include spacing("font-size", 15);
+    font-weight: 600;
+    transition: transform 0.3s ease;
+    will-change: transform;
+
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 150%;
+        left: 0;
+        width: 100%;
+        white-space: nowrap;
+    }
+}

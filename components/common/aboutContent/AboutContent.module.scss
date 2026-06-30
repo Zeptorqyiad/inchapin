@@ -1,0 +1,58 @@
+@use "@/style/mixins" as *;
+
+.content {
+    display: flex;
+    flex-direction: column;
+    @include spacing("padding-top", 102, 133, 76, 50, 0);
+    @include spacing("flex-basis", 454, 587, 334, 334);
+
+    @include sm {
+        flex-basis: 100%;
+        padding-inline: vw-sm(20);
+    }
+
+    &__line {
+        @include spacing("width", 49, 63, 35, 35, 35);
+        @include spacing("height", 9, 12, 6, 6, 6);
+        background: var(--primary-color);
+        @include spacing(border-radius, 1);
+    }
+
+    &__title {
+        font-family: 400;
+        line-height: 140%;
+        text-transform: uppercase;
+        color: var(--dark-text);
+        @include spacing("font-size", 26, 34, 19, 19, 16);
+        @include spacing("margin-top", 50, 65, 35, 30, 30);
+
+        span {
+            color: var(--blue-text);
+            display: block;
+        }
+
+        @include sm {
+            line-height: 150%;
+            width: 90%;
+        }
+    }
+
+    &__description {
+        font-family: 400;
+        line-height: 160%;
+        text-transform: uppercase;
+        color: var(--dark-text);
+        @include spacing("margin-top", 100, 120, 65, 20, 40);
+        @include spacing("font-size", 16, 20, 12, 12, 11);
+        @include spacing("margin-bottom", 96, 100, 60, 30, 20);
+
+        span {
+            color: var(--blue-text);
+            display: block;
+        }
+
+        @include md {
+            line-height: 180%;
+        }
+    }
+}

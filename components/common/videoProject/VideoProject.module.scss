@@ -1,0 +1,8 @@
+@use "@/style/mixins" as *;
+
+.video__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include spacing("gap", 15, 20, 20, 20, 24);
+}

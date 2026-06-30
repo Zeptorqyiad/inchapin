@@ -1,0 +1,51 @@
+@use "@/style/mixins" as *;
+
+.form {
+    @include spacing("width", 454, 587, 370, 438);
+    height: fit-content;
+
+    @include sm {
+        width: 100%;
+    }
+
+    &__title {
+        @include spacing("font-size", 40, 52, 28, 28, 20);
+        text-transform: uppercase;
+        line-height: 120%;
+        @include spacing("margin-bottom", 50, 80, 50, 50, 30);
+        text-align: center;
+
+        @include md {
+            line-height: 140%;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include sm {
+            padding-inline: vw-sm(20);
+        }
+    }
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+        @include spacing("gap", 40, 50, 45, 45, 40);
+        width: 100%;
+    }
+
+    &__policy {
+        text-align: center;
+        line-height: 140%;
+        @include spacing("font-size", 12, 14, 11, 11, 12);
+        opacity: 0.5;
+        @include spacing("margin-top", 50);
+    }
+
+    &__button {
+        @include spacing("margin-top", 30, 30, 30, 30, 20);
+    }
+}

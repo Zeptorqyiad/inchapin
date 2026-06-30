@@ -1,0 +1,55 @@
+@use "@/style/mixins" as *;
+
+.wrapper {
+    width: 100%;
+    position: relative;
+}
+
+.input {
+    position: relative;
+    border: none;
+    inset: 0;
+    min-width: 100%;
+    border-bottom: vw(1) solid #00000033;
+    @include spacing("height", 30, 35, 30, 26, 26);
+
+    @include xxl {
+        border-width: vw-xxl(1);
+    }
+    @include lg {
+        border-width: vw-lg(1);
+    }
+    @include md {
+        border-width: vw-md(1);
+    }
+    @include sm {
+        border-width: vw-sm(1);
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+        & ~ .input__label {
+            transform: scale(0.8) translate(-10px, -20px);
+            left: 0;
+        }
+    }
+
+    &__label {
+        line-height: 160%;
+        @include spacing("font-size", 16, 17, 14, 14, 11);
+        color: var(--black-text);
+        text-transform: uppercase;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.6s ease;
+        will-change: transform;
+        cursor: text;
+        user-select: none;
+    }
+
+    &__error {
+        @include spacing("font-size", 12);
+        color: red;
+    }
+}

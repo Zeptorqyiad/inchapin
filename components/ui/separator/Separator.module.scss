@@ -1,0 +1,16 @@
+@use "@/style/mixins" as *;
+
+.separator {
+    background: var(--line-color);
+    width: fit-content;
+}
+
+.horizontal {
+    @include spacing("height", 1);
+    width: 100%;
+}
+
+.vertical {
+    @include spacing("width", 1);
+    height: 100%;
+}

@@ -1,0 +1,88 @@
+@use "@/style/mixins" as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    height: fit-content;
+    background: var(--white-bg-color);
+    padding-block: vw(28);
+    @include spacing("padding-block", 28, 40, 30, 40, 20);
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__leftside {
+        display: flex;
+        flex-direction: row;
+        @include spacing("gap", 40, 43, 25, 0, 0);
+
+        @include sm {
+            order: 1;
+        }
+    }
+
+    &__logotype {
+        @include spacing("width", 155, 187, 155, 155, 130);
+        @include spacing("height", 25, 30, 25, 25, 21);
+
+        @include sm {
+            order: 2;
+        }
+    }
+
+    &__rightside {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        @include spacing("gap", 40, 45, 35, 0, 0);
+
+        @include md {
+            display: none;
+        }
+    }
+
+    &__phone {
+        span {
+            color: var(--dark-text);
+            font-weight: 600;
+            @include spacing("font-size", 14, 15, 12);
+        }
+    }
+
+    &__select {
+        &--full {
+            @include md {
+                display: none;
+            }
+        }
+        &--mob {
+            display: none;
+
+            @include md {
+                display: block;
+            }
+            @include sm {
+                display: none;
+            }
+        }
+    }
+
+    &__callback--mob {
+        display: none !important;
+
+        @include md {
+            display: flex !important;
+        }
+        @include sm {
+            order: 3;
+        }
+    }
+}

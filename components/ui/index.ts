@@ -1,0 +1,5 @@
+export { Button } from "./button/Button"
+export { Separator } from "./separator/Separator"
+export { FormInput } from "./formInput/FormInput"
+export { AnimatedPhone } from "./animatedPhone/AnimatedPhone"
+export { PhoneIcon } from "./PhoneIcon/PhoneIcon"

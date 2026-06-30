@@ -1,0 +1,25 @@
+@use "@/style/mixins" as *;
+
+.modal_content {
+    @include spacing("width", 41);
+    @include spacing("height", 41);
+    border: vw(1) solid;
+    border-color: var(--line-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include md {
+        border-width: vw-md(1);
+    }
+    @include sm {
+        border-width: vw-sm(1);
+        border-color: var(--primary-color);
+    }
+}
+
+.icon {
+    @include spacing("width", 14);
+    @include spacing("height", 14);
+}

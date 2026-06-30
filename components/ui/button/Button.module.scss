@@ -1,0 +1,186 @@
+@use "@/style/mixins" as *;
+
+.button {
+    width: fit-content;
+
+    &__burger {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 100%;
+        letter-spacing: 0.07em;
+        @include spacing("font-size", 13);
+        @include spacing("gap", 12);
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                .button__burger_lines {
+                    span:first-child {
+                        transform: translateY(vw(-2));
+                    }
+                    span:last-child {
+                        transform: translateY(vw(2));
+                    }
+                }
+            }
+        }
+
+        p {
+            @include sm {
+                display: none;
+            }
+        }
+
+        &_lines {
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            @include spacing("gap", 4);
+
+            span {
+                display: block;
+                position: relative;
+                inset: 0;
+                background: var(--primary-color);
+                @include spacing("height", 2);
+                @include spacing("width", 32);
+                transition: transform 0.25s ease;
+
+                @include sm {
+                    width: vw-sm(29);
+                    background: var(--black-text);
+                }
+            }
+        }
+    }
+
+    &__loading {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.8;
+    }
+
+    &__spinner {
+        @include spacing("width", 20);
+        @include spacing("height", 20);
+        border: vw(2) solid #ffffff4d;
+        border-radius: 50%;
+        border-top-color: #fff;
+        display: inline-block;
+        animation: spin 0.8s linear infinite;
+
+        @include xxl {
+            border-width: vw-xxl(2);
+        }
+        @include lg {
+            border-width: vw-lg(2);
+        }
+        @include md {
+            border-width: vw-md(2);
+        }
+        @include sm {
+            border-width: vw-sm(2);
+        }
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.text {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    @include spacing("font-size", 13, 15, 12, 12, 12);
+    letter-spacing: 0.007em;
+    line-height: 100%;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            color: #7eb6ff;
+        }
+    }
+
+    &:active {
+        color: #133563;
+    }
+
+    &__full {
+        @include md {
+            display: none;
+        }
+    }
+
+    &__mob {
+        display: none !important;
+
+        @include md {
+            display: flex !important;
+        }
+    }
+}
+
+.outline {
+    @include spacing("width", 228);
+    @include spacing("height", 62);
+    @include spacing("font-size", 14);
+    background: var(--blue-text);
+    color: var(--white-text);
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    @include spacing("border-radius", 40);
+
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, background, box-shadow;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        transition: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            background: #257bfa;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(12, 89, 190, 0.35);
+
+            &::before {
+                left: 150%;
+                transition: left 0.6s ease-in-out;
+            }
+        }
+    }
+
+    &:active {
+        background: #0c59be;
+        transform: translateY(1px);
+        box-shadow: 0 4px 8px rgba(12, 89, 190, 0.2);
+
+        &::before {
+            left: -100%;
+            transition: none;
+        }
+    }
+}

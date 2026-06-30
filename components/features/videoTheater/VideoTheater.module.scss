@@ -1,0 +1,22 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: zoom-out;
+}
+
+.video {
+    width: 100%;
+    height: auto;
+    max-height: 100dvh;
+    outline: none;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    background: #000;
+    cursor: default;
+}

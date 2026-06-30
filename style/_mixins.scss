@@ -1,0 +1,47 @@
+@use "sass:math";
+
+// --- 1. Функции перевода в VW ---
+@function vw-xxl($px, $base: 1920) { @return #{math.div($px, $base) * 100}vw; }
+@function vw($px, $base: 1440)     { @return #{math.div($px, $base) * 100}vw; }
+@function vw-lg($px, $base: 1280)  { @return #{math.div($px, $base) * 100}vw; }
+@function vw-md($px, $base: 768)   { @return #{math.div($px, $base) * 100}vw; }
+@function vw-sm($px, $base: 375)   { @return #{math.div($px, $base) * 100}vw; }
+
+// --- 2. Переменные брейкпоинтов ---
+$mobile-max: 767px;
+$tablet-max: 1023px;
+$desktop-max: 1280px;
+$desktop-xl: 1769px;
+$desktop-xxl: 1770px;
+
+// --- 3. Миксины медиазапросов ---
+@mixin xxl { @media screen and (min-width: $desktop-xxl) { @content; } }
+@mixin lg  { @media screen and (max-width: $desktop-max) { @content; } }
+@mixin md  { @media screen and (max-width: $tablet-max)  { @content; } }
+@mixin sm  { @media screen and (max-width: $mobile-max)  { @content; } }
+
+@mixin hover {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover { @content; }
+}
+
+
+@mixin spacing($property, $xl, $xxl: $xl, $lg: $xl, $md: $lg, $sm: $md) {
+    #{$property}: vw($xl);
+
+    @media screen and (min-width: $desktop-xxl) {
+        #{$property}: vw-xxl($xxl);
+    }
+
+    @media screen and (max-width: $desktop-max) {
+        #{$property}: vw-lg($lg);
+    }
+
+    @media screen and (max-width: $tablet-max) {
+        #{$property}: vw-md($md);
+    }
+
+    @media screen and (max-width: $mobile-max) {
+        #{$property}: vw-sm($sm);
+    }
+}

@@ -1,0 +1,103 @@
+@use "@/style/mixins" as *;
+
+.control {
+    background: var(--primary-color);
+    @include spacing("width", 240, 240, 192);
+    height: fit-content;
+    @include spacing("padding-block", 15, 18, 15, 15);
+    @include spacing("padding-inline", 20, 26, 20, 18);
+    @include spacing("border-radius", 40);
+    cursor: pointer !important;
+
+    overflow: hidden;
+
+    &:hover {
+        .placeholder_animated {
+            transform: translateY(-150%);
+        }
+    }
+}
+
+.value_container {
+    color: var(--white-text);
+    letter-spacing: 0.07em;
+    line-height: 100%;
+    @include spacing("font-size", 15, 15, 12, 12, 12);
+    text-transform: uppercase;
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.placeholder_animated {
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s ease;
+    will-change: transform;
+
+    &::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 150%;
+        left: 0;
+        width: 100%;
+        white-space: nowrap;
+    }
+}
+
+.indicators_container {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown_indicator {
+    color: var(--white-text);
+}
+
+.menu {
+    @include spacing("margin-top", 10);
+    background: var(--white-bg-color);
+    @include spacing("border-radius", 20);
+    border: vw(1) solid #e2e8f0;
+    overflow: hidden;
+    z-index: 10;
+
+    @include xxl {
+        border-width: vw-xxl(1);
+    }
+    @include lg {
+        border-width: vw-lg(1);
+    }
+    @include md {
+        border-width: vw-md(1);
+    }
+    @include sm {
+        border-width: vw-sm(1);
+    }
+
+    &__list {
+        @include spacing("padding-block", 4);
+        height: fit-content;
+        cursor: pointer;
+    }
+}
+
+.option {
+    @include spacing("padding-block", 12);
+    @include spacing("padding-inline", 16);
+    @include spacing("font-size", 15);
+    color: var(--black-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    cursor: pointer !important;
+
+    &__focused {
+        background: #f4f8ff;
+        color: var(--blue-text);
+    }
+
+    &__selected {
+        background: var(--blue-text);
+        color: var(--white-text);
+    }
+}

@@ -1,0 +1,22 @@
+@use "@/style/mixins" as *;
+
+.about {
+    @include spacing("margin-block-start", 110, 150, 120, 90, 55);
+    @include spacing("margin-block-end", 40, 80, 30, 40, 20);
+
+    &__container {
+        @include md {
+            padding-inline: 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row;
+        @include spacing("gap", 226, 293, 148, 94, 56);
+
+        @include sm {
+            flex-direction: column;
+        }
+    }
+}

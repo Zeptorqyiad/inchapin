@@ -1,0 +1,17 @@
+@use "@/style/mixins" as *;
+
+.circle {
+    background: var(--primary-color);
+    @include spacing("width", 200, 260, 148, 80, 87);
+    @include spacing("height", 200, 260, 148, 80, 87);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__arrow {
+        @include spacing("width", 49, 63, 35, 19, 20);
+        @include spacing("height", 68, 88, 49, 26, 27);
+    }
+}

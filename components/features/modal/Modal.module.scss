@@ -1,0 +1,62 @@
+@use "@/style/mixins" as *;
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--white-bg-color);
+}
+
+.enter,
+.appear {
+    opacity: 0;
+}
+
+.enterActive,
+.appearActive {
+    animation: modalFadeIn 0.3s ease forwards;
+}
+
+.exit {
+    opacity: 1;
+}
+
+.exitActive {
+    animation: modalFadeOut 0.3s ease forwards;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.modal__content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.modal__close {
+    position: absolute;
+    @include spacing("top", 60, 60, 50, 40, 20);
+    @include spacing("right", 60, 60, 50, 40, 20);
+    cursor: pointer;
+}

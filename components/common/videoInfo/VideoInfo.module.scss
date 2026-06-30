@@ -1,0 +1,32 @@
+@use "@/style/mixins" as *;
+
+.video-info {
+    display: flex;
+    flex-direction: column;
+    @include spacing("padding-top", 30);
+
+    @include md {
+        padding-top: vw-md(24);
+    }
+    @include sm {
+        padding-top: vw-sm(24);
+    }
+
+    &__title {
+        color: var(--dark-text);
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 160%;
+        white-space: nowrap;
+        @include spacing("font-size", 14, 18, 10, 10, 10);
+    }
+
+    &__duration {
+        @include spacing("font-size", 14, 18, 13, 13, 13);
+        font-weight: 400;
+        line-height: 160%;
+        white-space: nowrap;
+        color: var(--dark-text);
+        opacity: 50%;
+    }
+}
