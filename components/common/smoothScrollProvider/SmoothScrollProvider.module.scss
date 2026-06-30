@@ -1,4 +1,12 @@
 .scroll {
     height: 100dvh;
     overflow: hidden;
+
+    -webkit-overflow-scrolling: touch;
+    
+    // Предотвращаем "отскок" (bounce effect)
+    overscroll-behavior: none;
+    
+    // Фикс для iOS safe-area
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
