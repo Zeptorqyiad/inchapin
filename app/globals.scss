@@ -17,14 +17,9 @@ body {
     font-family: "Proxima Nova", sans-serif;
     overflow-x: hidden;
     max-width: 100%;
-
     height: -webkit-fill-available;
     min-height: -webkit-fill-available;
-
     overscroll-behavior: none;
-
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-        env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 main {
@@ -33,10 +28,4 @@ main {
 
 .scrollbar-track {
     z-index: 101 !important;
-}
-
-.scroll-content {
-    min-height: 100%;
-    min-height: -webkit-fill-available;
-    padding-bottom: env(safe-area-inset-bottom, 16px);
 }
